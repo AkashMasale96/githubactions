@@ -1,18 +1,14 @@
 from flask import Flask, jsonify
 import datetime
 import random
-
 app = Flask(__name__)
-
 @app.route("/")
 def home():
     return "<h1>🚀 DevOps Dashboard API</h1><p>Try /status to see CI/CD pipeline info.</p>"
-
 @app.route("/status")
 def status():
     stages = ["Build", "Test", "Deploy"]
     results = ["Success", "Failed", "Running", "Queued"]
-
     pipeline_data = {
         "pipeline_id": random.randint(1000, 9999),
         "project": "DevOps-Demo",
